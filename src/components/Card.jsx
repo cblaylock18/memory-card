@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
-function Card({ id }) {
+function Card({ id, handleClick }) {
     const [loading, setLoading] = useState(false);
-    const [pokedex, setPokedex] = useState([]);
+    const [pokedex, setPokedex] = useState(null);
 
     useEffect(() => {
-        try {
-            const loadPokedex = async () => {
+        const loadPokedex = async () => {
+            try {
                 setLoading(true);
 
                 const response = await fetch(
-                    `https://pokeapi.co/api/v2/pokemon-species/${id}/`, //maybe change this back to overall dataset and remove species, then can pull name and image
+                    `https://pokeapi.co/api/v2/pokemon/${id}/`,
                     { mode: "cors" }
                 );
 
@@ -18,27 +18,32 @@ function Card({ id }) {
 
                 setPokedex(pokedexData);
                 setLoading(false);
-            };
+            } catch (error) {
+                console.log(`Error in api call: ${error}`);
+                setLoading(false);
+            }
+        };
 
-            loadPokedex();
-        } catch (error) {
-            console.log(`error in api call: ${error}`);
-            setLoading(false);
-        }
+        loadPokedex();
     }, [id]);
 
-    // delete this effect when done debugging
-    useEffect(() => {
-        console.log("Updated pokedex:", pokedex); // Logs updated state
-    }, [pokedex]);
+    if (loading || !pokedex) {
+        return <div className="card-loading">Loading...</div>;
+    }
+
+    const imgSrc = pokedex.sprites.front_default;
+    const pokemonName =
+        pokedex.name.slice(0, 1).toUpperCase() + pokedex.name.slice(1);
 
     return (
-        <div className="card">
+        <div className="card" onClick={handleClick}>
             <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                alt={id}
+                className="card-image"
+                src={imgSrc}
+                alt={`Pokemon ${id}`}
                 height={300}
             />
+            <div className="card-name">{pokemonName}</div>
         </div>
     );
 }
