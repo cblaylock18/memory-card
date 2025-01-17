@@ -1,5 +1,10 @@
-function Header() {
-    return <header>Memory Card Game - Pokemon Style!</header>;
+function Header({ children }) {
+    return (
+        <>
+            <header>Memory Card Game - Pokémon Style!</header>
+            {children}
+        </>
+    );
 }
 
 export { Header };

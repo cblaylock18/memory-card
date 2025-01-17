@@ -1,7 +1,7 @@
 function Instructions() {
     return (
         <div className="instructions">
-            Select Pokemon. Don&apos;t repeat any Pokemon. Aim for a score of
+            Select Pokémon. Don&apos;t repeat any Pokémon. Aim for a score of
             12!
         </div>
     );

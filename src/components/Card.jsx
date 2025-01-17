@@ -28,7 +28,9 @@ function Card({ id, handleClick }) {
     }, [id]);
 
     if (loading || !pokedex) {
-        return <div className="card-loading">Loading...</div>;
+        return (
+            <div className="card-loading">{`Loading Pokémon #${id}...`}</div>
+        );
     }
 
     const imgSrc = pokedex.sprites.front_default;
@@ -37,12 +39,7 @@ function Card({ id, handleClick }) {
 
     return (
         <div className="card" onClick={handleClick}>
-            <img
-                className="card-image"
-                src={imgSrc}
-                alt={`Pokemon ${id}`}
-                height={300}
-            />
+            <img className="card-image" src={imgSrc} alt={`Pokemon ${id}`} />
             <div className="card-name">{pokemonName}</div>
         </div>
     );

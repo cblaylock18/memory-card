@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "pokemonSolid";
+    src: url("./font/solid-text/pokemon_solid-webfont.woff2") format("woff2"),
+        url("./font/solid-text/pokemon_solid-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "pokemonHollow";
+    src: url("./font/hollow-text/pokemon_hollow-webfont.woff2") format("woff2"),
+        url("./font/hollow-text/pokemon_hollow-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#root {
+    flex: 0 1 1400px;
+}
+
+header {
+    background-color: #ff0000;
+    text-align: center;
+    font-family: "pokemonSolid";
+    font-weight: bold;
+    color: #ffde00;
+    -webkit-text-stroke: 1px #3b4cca;
+    font-size: 3rem;
+    padding: 0.5rem;
+}
+
+.info {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.try-again-message {
+    position: absolute;
+    background-image: linear-gradient(#ff0000, white, #ff0000);
+    opacity: 0.9;
+    padding: 0.5rem;
+    border-radius: 16px;
+    left: 40%;
+    bottom: -3rem;
+    font-family: pokemonSolid;
+    color: #ffde00;
+    -webkit-text-stroke: 1px #3b4cca;
+}
+
+.instructions {
+    margin: 1rem;
+}
+
+button {
+    padding: 15px 10px;
+    margin: 0 1rem 1rem 1rem;
+    max-width: 25rem;
+    max-height: 10rem;
+    border: 1px solid #ff0000;
+    border-radius: 16px;
+    background-color: #3b4cca;
+    color: #ffde00;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.scores {
+    display: flex;
+    justify-content: left;
+    gap: 50px;
+    margin: 1rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 15px;
+    place-items: center;
+    margin: 1rem;
+}
