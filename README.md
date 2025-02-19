@@ -24,6 +24,8 @@ A memory game built with React. Players click through Pokémon cards and score p
 ## Live Demo
 **[View Demo on Vercel (Here)](https://memory-card-taupe-three.vercel.app/)**
 
+<img alt="Screenshot of site" src="https://github.com/user-attachments/assets/5d8240d5-95a2-4338-8270-f760a9cda171">
+
 ---
 
 ## Technologies Used
